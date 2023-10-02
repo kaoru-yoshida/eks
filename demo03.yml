@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: demo03
+data:
+  Message: Hello World 3
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: demo03
+spec:
+  containers:
+  - name: ubuntu
+    image: ubuntu:22.04
+    env:
+      - name: Msg
+        valueFrom:
+          configMapKeyRef:
+            name: demo03
+            key: Message
+    command: [ "/bin/sh", "-c", "echo $Msg" ]

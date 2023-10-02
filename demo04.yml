@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: demo04
+data:
+  Message: SGVsbG8gV29ybGQgNA==
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: demo04
+spec:
+  containers:
+  - name: ubuntu
+    image: ubuntu:22.04
+    env:
+      - name: Msg
+        valueFrom:
+          secretKeyRef:
+            name: demo04
+            key: Message
+    command: [ "/bin/sh", "-c", "echo $Msg" ]

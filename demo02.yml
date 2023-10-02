@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: demo02
+spec:
+  containers:
+  - name: ubuntu
+    image: ubuntu:22.04
+    volumeMounts:
+    - name: persistent-storage
+      mountPath: /cache
+  volumes:
+  - name: persistent-storage
+    emptyDir: {}

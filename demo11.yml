@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: demo11
+spec:
+  selector:
+    matchLabels:
+      app: demo11
+  template:
+    metadata:
+      labels:
+        app: demo11
+    spec:
+      containers:
+        - name: fluentbit
+          image: "cr.fluentbit.io/fluent/fluent-bit:2.0.5"
