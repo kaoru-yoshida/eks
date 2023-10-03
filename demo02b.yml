@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: demo07
+  name: demo02b
 spec:
   capacity:
     storage: 2Gi
@@ -10,13 +10,13 @@ spec:
   persistentVolumeReclaimPolicy: Delete
   storageClassName: manual
   hostPath:
-    path: /tmp
+    path: /demo02b
     type: Directory
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: demo07
+  name: demo02b
 spec:
   resources:
     requests:
@@ -28,15 +28,15 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: demo07
+  name: demo02b
 spec:
   containers:
   - name: nginx
     image: nginx:latest
     volumeMounts:
-    - mountPath: /tmp
-      name: demo07
+    - mountPath: /demo02b
+      name: demo02b
   volumes:
-  - name: demo07
+  - name: demo02b
     persistentVolumeClaim:
-      claimName: demo07
+      claimName: demo02b

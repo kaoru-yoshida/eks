@@ -1,7 +1,13 @@
 apiVersion: v1
-kind: ResourceQuota
+kind: Pod
 metadata:
   name: demo08b
 spec:
-  hard:
-    requests.cpu: 300m
+  containers:
+  - name: nginx
+    image: nginx:latest
+  tolerations:
+  - key: skynet
+    operator: Equal
+    value: "true"
+    effect: NoSchedule

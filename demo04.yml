@@ -3,7 +3,7 @@ kind: Secret
 metadata:
   name: demo04
 data:
-  Message: SGVsbG8gV29ybGQgNA==
+  Message: SGVsbG8gV29ybGQ=
 ---
 apiVersion: v1
 kind: Pod

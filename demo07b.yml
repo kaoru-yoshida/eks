@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: demo07b
+spec:
+  hard:
+    requests.cpu: 300m

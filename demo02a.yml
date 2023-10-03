@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: demo02a
+spec:
+  containers:
+  - name: nginx
+    image: nginx:latest
+    volumeMounts:
+    - name: demo02a
+      mountPath: /demo02a
+  volumes:
+  - name: demo02a
+    emptyDir: {}
